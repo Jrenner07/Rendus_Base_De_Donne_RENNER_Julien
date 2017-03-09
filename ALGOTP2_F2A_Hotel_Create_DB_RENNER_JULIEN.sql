@@ -1,0 +1,101 @@
+PRAGMA Foreign_Keys = ON;
+
+CREATE TABLE T_CHAMBRE (
+	CHB_ID int(255) NOT NULL,
+  	CHB_NUMERO smallint(255) NOT NULL,
+  	CHB_ETAGE char(3) NOT NULL,
+  	CHB_BAIN int(255) NOT NULL,
+  	CHB_DOUCHE int(255) NOT NULL,
+  	CHB_WC int(255) NOT NULL,
+  	CHB_COUCHAGE smallint(255) NOT NULL,
+  	CHB_POSTE_TEL char(3) NOT NULL,
+
+	primary key (CHB_ID)
+)
+
+CREATE TABLE T_LIGNE_FACTURE (
+	LIF_ID int(255) NOT NULL,
+  	LIF_QTE float(255) NOT NULL,
+  	LIF_REMISE_POURCENT float(255) NOT NULL,
+  	LIF_REMISE_MONTANT float(255) NOT NULL,
+  	LIF_TAUX_TVA float(255) NOT NULL,
+
+	primary key (LIF_ID)
+)
+
+CREATE TABLE T_PLANNING (
+	PLN_JOUR date(255) NOT NULL,
+)
+
+CREATE TABLE T_TARIF (
+	TRF_DATE_DEBUT date(255) NOT NULL,
+  	TRF_TAUX_TAXES float(255) NOT NULL,
+  	TRF_PETIT_DEJEUNE float(255) NOT NULL,
+
+	primary key (TRF_DATE_DEBUT)
+)
+
+CREATE TABLE T_MODE_PAIEMENT (
+	PMT_CODE char(8) NOT NULL,
+  	PMT_LIBELLE varchar(64) NOT NULL,
+
+	primary key (PMT_CODE)
+)
+
+CREATE TABLE T_FACTURE (
+	FAC_ID int(255) NOT NULL,
+  	FAC_DATE date(255) NOT NULL,
+
+	primary key (FAC_ID)
+)
+
+CREATE TABLE T_CLIENT (
+	CLI_ID int(255) NOT NULL,
+  	CLI_NOM char(32) NOT NULL,
+  	CLI_PRENOM varchar(25) NOT NULL,
+  	CLI_ENSEIGNE varchar(100) NOT NULL,
+
+	primary key (CLI_ID)
+)
+
+CREATE TABLE T_TELEPHONE (
+	TEL_ID int(255) NOT NULL,
+  	TEL_NUMERO char(20) NOT NULL,
+  	TEL_LOCALISATION varchar(64) NOT NULL,
+
+	primary key (TEL_ID)
+)
+
+CREATE TABLE T_TITRE (
+	TIT_CODE char(8) NOT NULL,
+  	TIT_LIBELLE varchar(32) NOT NULL,
+
+	primary key (TIT_CODE)
+)
+
+CREATE TABLE T_ADRESSE (
+	ADR_ID int(255) NOT NULL,
+  	ADR_LIGNE1 varchar(32) NOT NULL,
+  	ADR_LIGNE2 varchar(32) NOT NULL,
+  	ADR_LIGNE3 varchar(32) NOT NULL,
+  	ADR_LIGNE4 varchar(32) NOT NULL,
+  	ADR_CP char(5) NOT NULL,
+  	ADR_VILLE varchar(32) NOT NULL,
+
+	primary key (ADR_ID)
+)
+
+CREATE TABLE T_EMAIL (
+	EML_ID int(255) NOT NULL,
+  	EML_ADRESSE varchar(100) NOT NULL,
+  	EML_LOCALISATION varchar(64) NOT NULL,
+
+	primary key (EML_ID)
+)
+
+CREATE TABLE T_TYPE (
+	TYP_CODE char(8) NOT NULL,
+  	TYP_LIBELLE varchar(32) NOT NULL,
+
+	primary key (TYP_CODE)
+)
